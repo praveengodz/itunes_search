@@ -182,8 +182,12 @@ class _SongListFormState extends State<SongListForm> {
   }
 
   void performSearchAction(String searchString) {
-    BlocProvider.of<SongListBloc>(context)
-        .add(FetchSongList(searchString: searchString));
+    if (searchString.trim().length == 0) {
+      _showDialog("Search query is empty!");
+    } else {
+      BlocProvider.of<SongListBloc>(context)
+          .add(FetchSongList(searchString: searchString));
+    }
   }
 
   Future<void> listItemTapped(SongModel item, int index) async {
