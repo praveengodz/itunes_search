@@ -29,6 +29,7 @@ jobs:
     
     # Get flutter dependencies.
     - run: cd itunes_player
+    - run: cd itunes_player
     - run: ls
     - run: flutter pub get
     
